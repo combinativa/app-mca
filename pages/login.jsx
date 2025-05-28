@@ -9,10 +9,10 @@ export default function Login() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       console.log("Usuário logado:", user);
-      window.location.href = "/dashboard"; // Redirecionar após login
+      window.location.href = "/dashboard";
     } catch (err) {
-      console.error("Erro no login:", err);
-      alert("Erro ao fazer login. Tente novamente.");
+      console.error("Erro no login:", err.code, err.message);
+      alert(`Erro ao fazer login: ${err.message}`);
     }
   };
 
